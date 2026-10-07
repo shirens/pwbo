@@ -18,7 +18,7 @@
     <div class="navbar-nav">
         <a class="nav-link" href="<?php echo BASEURL; ?>">Home <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="<?php echo BASEURL; ?>/mahasiswa">Mahasiswa</a>
-        <a class="nav-link" href="<?php echo BASEURL; ?>">About</a>
+       <a class="nav-link" href="<?php echo BASEURL; ?>/about">About</a>
     </div>
   </div>
 </div>
