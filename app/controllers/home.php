@@ -10,3 +10,4 @@ class home extends controller {
         $this->view('templates/footer');
     }
 }
+?>
