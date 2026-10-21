@@ -1,15 +1,25 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-6">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">
+    <div class="col-lg-6">
+      <?php flasher::flash();?>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+      <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
   Tambah Data Mahasiswa
 </button>
+<br><br>
         <h3>Daftar Mahasiswa</h3>
         <ul class="list-group">
         <?php foreach($data['mhs'] as $mhs) : ?>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
+  <li class="list-group-item">
     <?php echo $mhs['nama']; ?>
-    <a href="<?php echo BASEURL; ?>/mahasiswa/detail/<?php echo $mhs['id']; ?>" class="badge badge-primary">detail
+    <a href="<?php echo BASEURL; ?>/mahasiswa/hapus/<?php echo $mhs['id']; ?>" class="badge badge-danger float-right ml-1" onclick="return confirm('Yakin?');">hapus
+        </a>
+        <a href="<?php echo BASEURL; ?>/mahasiswa/Ubah/<?php echo $mhs['id']; ?>" class="badge badge-success float-right ml-1 tampilModalUbah" data-toggle="modal" data-target="#formModal" data-id="<?php echo $mhs['id']; ?>">ubah
+        </a>
+    <a href="<?php echo BASEURL; ?>/mahasiswa/detail/<?php echo $mhs['id']; ?>" class="badge badge-primary float-right ml-1">detail
         </a>
         </li>
         <?php endforeach; ?>
@@ -29,6 +39,7 @@
       </div>
       <div class="modal-body">
         <form action="<?php echo BASEURL; ?>/mahasiswa/tambah" method="post">
+          <input type="hidden" id="id" name="id">
           <div class="form-group">
     <label for="nama">Nama</label>
     <input type="text" class="form-control" id="nama" name="nama">
